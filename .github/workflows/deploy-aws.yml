@@ -25,3 +25,10 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/front:latest
+      - name: Desplegar en EC2 (via ssh)
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST}}
+          username:
+          key:
+          script:
